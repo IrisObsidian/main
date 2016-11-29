@@ -39,13 +39,13 @@
                     </ul>
                 </li>
                 <li><a href="#"><span class="glyphicon glyphicon-send"></span>&nbsp;留言板</a></li>
-                <li><a href="#"><span class="glyphicon glyphicon-log-in"></span>&nbsp;登录</a></li>
+                <li><a href="{{url('Login')}}"><span class="glyphicon glyphicon-log-in"></span>&nbsp;登录</a></li>
             </ul>
         </div>
     </div>
 </nav>
 {{--页面body--}}
-<div class="container-fluid" style="padding-left: 1.7em;padding-right: 1.5em;padding-top: 50px;">
+<div class="container-fluid" style="padding-left: 1.7em;padding-right: 1.5em;padding-top: 65px;">
     <div class="row">@yield('content')</div>
 </div>
 {{--在body闭合标签前引入js文件--}}
@@ -53,6 +53,7 @@
 <script src="{{asset('js/bootstrap.min.js')}}"></script>
 <script src="{{asset('js/jquery.form.js')}}"></script>
 <script src="{{asset('layer/layer.js')}}"></script>
+{{--<script src="{{asset('js/vue.js')}}"></script>--}}
 </body>
 {{--页面的js代码--}}
 @yield('script')

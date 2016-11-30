@@ -11,7 +11,10 @@
 |
 */
 
+//不需要权限就能访问的页面
 Route::get('/', function () {
     return view('homepage');
 });
 Route::resource('/Login','AdminLoginController');
+//需要权限才能访问的页面
+//Route::group();

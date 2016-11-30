@@ -7,14 +7,14 @@
         <form id="login" action="{{url('/Login')}}" class="col-sm-4 col-sm-offset-4 form-horizontal" role="form" method="post" onsubmit="return commit();">
             {{csrf_field()}}
             <div class="form-group">
-                <label for="username" class="col-sm-2 control-label">Name:</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" name="username" required="required">
+                <label for="E-Mail" class="col-sm-3 control-label">E-Mail:</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" name="email" required="required">
                 </div>
             </div>
             <div class="form-group">
-                <label for="password" class="col-sm-2 control-label">Password:</label>
-                <div class="col-sm-10">
+                <label for="password" class="col-sm-3 control-label">Password:</label>
+                <div class="col-sm-9">
                     <input type="password" class="form-control" name="password" required="required">
                 </div>
             </div>
@@ -26,12 +26,20 @@
 @endsection
 @section('script')
     <script>
+        //提交表单触发该函数
         function commit() {
-            $('#login').ajaxSubmit({
-                beforeSubmit:function (formData) {
-//                    formData[2]['value'];
-                }
+            //使用jquery.form.js插件的异步提交表单函数
+            $('#login').submit(function () {
+                $('#login').ajaxSubmit({
+                    //在表单提交之前执行的函数，可以使用正则过滤非法输入
+                    //beforeSubmit:function (formData) {}
+                    //异步提交表单之后执行的函数
+                    success:function () {
+
+                    }
+                });
             });
+            //必须返回false，阻止表单的默认提交
             return false;
         }
     </script>

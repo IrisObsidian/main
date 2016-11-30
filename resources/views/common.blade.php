@@ -53,7 +53,7 @@
 <script src="{{asset('js/bootstrap.min.js')}}"></script>
 <script src="{{asset('js/jquery.form.js')}}"></script>
 <script src="{{asset('layer/layer.js')}}"></script>
-{{--<script src="{{asset('js/vue.js')}}"></script>--}}
+<script src="{{asset('js/vue.js')}}"></script>
 </body>
 {{--页面的js代码--}}
 @yield('script')

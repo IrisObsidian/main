@@ -34,8 +34,9 @@
                     //在表单提交之前执行的函数，可以使用正则过滤非法输入
                     //beforeSubmit:function (formData) {}
                     //异步提交表单之后执行的函数
-                    success:function () {
-
+                    success:function (status) {
+                        if (status == 1)
+                            window.location = "{{url('/')}}";
                     }
                 });
             });

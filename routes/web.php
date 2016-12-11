@@ -12,9 +12,9 @@
 */
 
 //不需要权限就能访问的页面
-Route::get('/', function () {
-    return view('homepage');
-});
-Route::resource('/Login','AdminLoginController');
+Route::get('/', function () {return view('homepage');});
+Route::get('/Login','AdminLoginController@index');
+Route::post('/Login','AdminLoginController@login');
+Route::get('/Logout','AdminLoginController@logout');
 //需要权限才能访问的页面
 //Route::group();

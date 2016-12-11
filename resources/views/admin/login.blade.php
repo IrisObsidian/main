@@ -29,16 +29,14 @@
         //提交表单触发该函数
         function commit() {
             //使用jquery.form.js插件的异步提交表单函数
-            $('#login').submit(function () {
-                $('#login').ajaxSubmit({
-                    //在表单提交之前执行的函数，可以使用正则过滤非法输入
-                    //beforeSubmit:function (formData) {}
-                    //异步提交表单之后执行的函数
-                    success:function (status) {
-                        if (status == 1)
-                            window.location = "{{url('/')}}";
-                    }
-                });
+            $('#login').ajaxSubmit({
+                //在表单提交之前执行的函数，可以使用正则过滤非法输入
+                //beforeSubmit:function (formData) {}
+                //异步提交表单之后执行的函数
+                success:function (status) {
+                    if (status == 1)
+                        window.location.href = "{{url('/')}}";
+                }
             });
             //必须返回false，阻止表单的默认提交
             return false;

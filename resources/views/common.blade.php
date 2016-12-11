@@ -39,10 +39,10 @@
                     </ul>
                 </li>
                 <li><a href="#"><span class="glyphicon glyphicon-send"></span>&nbsp;留言板</a></li>
-                @if(\Illuminate\Support\Facades\Auth::check())
+                @if(\Illuminate\Support\Facades\Auth::guest())
                     <li><a href="{{url('Login')}}"><span class="glyphicon glyphicon-log-in"></span>&nbsp;登录</a></li>
                 @else
-                    <li><a href="{{url('Login')}}"><span class="glyphicon glyphicon-log-in"></span>&nbsp;退出</a></li>
+                    <li><a href="{{url('Logout')}}"><span class="glyphicon glyphicon-log-in"></span>&nbsp;退出</a></li>
                 @endif
             </ul>
         </div>

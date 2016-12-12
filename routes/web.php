@@ -11,10 +11,11 @@
 |
 */
 
-//不需要权限就能访问的页面
+//不需要登录就能访问的页面
 Route::get('/', function () {return view('homepage');});
-Route::get('/Login','AdminLoginController@index');
-Route::post('/Login','AdminLoginController@login');
-Route::get('/Logout','AdminLoginController@logout');
-//需要权限才能访问的页面
-//Route::group();
+Route::get('/Login','AdminLoginController@Index');
+Route::post('/Login','AdminLoginController@Login');
+//需要登录才能访问的页面
+Route::group(['middleware' => 'CheckLogin'],function () {
+    Route::get('/Logout','AdminLoginController@Logout');
+});

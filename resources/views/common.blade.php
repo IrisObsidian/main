@@ -26,19 +26,18 @@
         <div class="collapse navbar-collapse" id="example-navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
                 <li class="active"><a href="{{url('/')}}"><span class="glyphicon glyphicon-home"></span>&nbsp;首页</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-picture"></span>&nbsp;相册<b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">jmeter</a></li>
-                        <li><a href="#">EJB</a></li>
-                        <li><a href="#">Jasper Report</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#">分离的链接</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#">另一个分离的链接</a></li>
-                    </ul>
-                </li>
-                <li><a href="#"><span class="glyphicon glyphicon-send"></span>&nbsp;留言板</a></li>
+                @if(\Illuminate\Support\Facades\Auth::guest())
+                    <li><a href="#"><span class="glyphicon glyphicon-picture"></span>&nbsp;相册</a></li>
+                @else
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-picture"></span>&nbsp;相册<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">添加</a></li>
+                            <li><a href="#">查看</a></li>
+                        </ul>
+                    </li>
+                @endif
+                <li><a href="#"><span class="glyphicon glyphicon-send"></span>&nbsp;留言</a></li>
                 @if(\Illuminate\Support\Facades\Auth::guest())
                     <li><a href="{{url('Login')}}"><span class="glyphicon glyphicon-log-in"></span>&nbsp;登录</a></li>
                 @else

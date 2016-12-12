@@ -4,18 +4,18 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Input;
-use Illuminate\Support\Facades\Session;
 
 class AdminLoginController extends Controller
 {
     //GET | App\Http\Controllers\AdminLoginController@index
-    public function index()
+    public function Index()
     {
         return view('admin/login');
     }
     //POST | App\Http\Controllers\AdminLoginController@login
-    public function login()
+    public function Login()
     {
         /*
          * attempt 方法接收键值数组对作为第一个参数，数组中的值被用于从数据表中查找用户，因此，在上面的例子中，用户将会通过email 的值获取，如果用户被找到，经哈希运算后存储在数据中的密码将会和传递过来的经哈希运算处理的密码值进行比较。如果两个经哈希运算的密码相匹配那么将会为这个用户开启一个认证Session。
@@ -32,8 +32,10 @@ class AdminLoginController extends Controller
             return $status = 0;
     }
     //GET | App\Http\Controllers\AdminLoginController@logout
-    public function logout()
+    public function Logout()
     {
-        dd(Auth::user());
+        //退出应用，清除用户Session中的认证信息
+        Auth::logout();
+        return redirect('/');
     }
 }
